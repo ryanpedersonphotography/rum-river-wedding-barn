@@ -34,9 +34,26 @@
     "typescript": "^5",
     "vercel": "^44.7.3"
   },
-  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "description": "A modern, multi-lingual wedding venue website for Rum River Wedding Barn built with Next.js, TypeScript, and Tailwind CSS",
+  "keywords": [
+    "wedding",
+    "venue",
+    "rum-river",
+    "nextjs",
+    "typescript",
+    "tailwind",
+    "vercel",
+    "multi-language",
+    "i18n"
+  ],
+  "author": "Ryan Pederson Photography",
+  "license": "UNLICENSED",
+  "homepage": "https://rum-river-wedding-barn.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanpedersonphotography/rum-river-wedding-barn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ryanpedersonphotography/rum-river-wedding-barn/issues"
+  }
 }
