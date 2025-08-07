@@ -1,0 +1,23 @@
+{
+  "common": {
+    "welcome": "Welcome to Rum River Wedding Barn",
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "gallery": "Gallery",
+      "packages": "Packages",
+      "contact": "Contact"
+    },
+    "cta": {
+      "bookNow": "Book Now",
+      "learnMore": "Learn More",
+      "viewGallery": "View Gallery"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Your Perfect Wedding Venue",
+      "subtitle": "Rustic Elegance on the Rum River"
+    }
+  }
+}

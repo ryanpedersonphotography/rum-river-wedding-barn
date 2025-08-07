@@ -1,0 +1,23 @@
+{
+  "common": {
+    "welcome": "Bienvenido a Rum River Wedding Barn",
+    "navigation": {
+      "home": "Inicio",
+      "about": "Acerca de",
+      "gallery": "Galería",
+      "packages": "Paquetes",
+      "contact": "Contacto"
+    },
+    "cta": {
+      "bookNow": "Reservar Ahora",
+      "learnMore": "Aprender Más",
+      "viewGallery": "Ver Galería"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Tu Lugar de Boda Perfecto",
+      "subtitle": "Elegancia Rústica en el Río Rum"
+    }
+  }
+}
