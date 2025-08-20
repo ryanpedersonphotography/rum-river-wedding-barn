@@ -1,0 +1,370 @@
+/* Advanced Section Dividers - Rum River Wedding Barn
+   Sophisticated wedding-themed transitions for premium visual flow */
+
+/* =============================================================================
+   BASE DIVIDER SYSTEM
+   ============================================================================= */
+
+:root {
+  /* Divider Heights */
+  --divider-height-subtle: 80px;
+  --divider-height-standard: 120px;
+  --divider-height-prominent: 180px;
+  
+  /* Animation Settings */
+  --divider-transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --divider-hover-scale: 1.02;
+  
+  /* Performance Settings */
+  --divider-animation-duration: 12s;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  :root {
+    --divider-height-subtle: 40px;
+    --divider-height-standard: 60px;
+    --divider-height-prominent: 80px;
+  }
+}
+
+/* Base divider container */
+.section-divider {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0); /* GPU acceleration */
+}
+
+/* Performance optimization - disable animations on mobile and for accessibility */
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .section-divider * {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* =============================================================================
+   FLOWING FABRIC DIVIDER - Elegant Wedding Dress Drape
+   ============================================================================= */
+
+.divider-flowing-fabric {
+  height: var(--divider-height-standard);
+  position: relative;
+  z-index: 1;
+}
+
+.divider-flowing-fabric::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 50%,
+    95% 55%, 90% 65%, 85% 70%, 80% 72%,
+    70% 75%, 60% 78%, 50% 80%, 40% 78%,
+    30% 75%, 20% 72%, 15% 70%, 10% 65%,
+    5% 55%, 0% 50%
+  );
+  animation: fabricFlow var(--divider-animation-duration) ease-in-out infinite;
+}
+
+.divider-flowing-fabric::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  opacity: 0.3;
+  clip-path: polygon(
+    0% 10%, 100% 10%, 100% 60%,
+    90% 65%, 80% 75%, 70% 80%, 60% 85%,
+    50% 90%, 40% 85%, 30% 80%, 20% 75%,
+    10% 65%, 0% 60%
+  );
+  animation: fabricFlow var(--divider-animation-duration) ease-in-out infinite reverse;
+}
+
+@keyframes fabricFlow {
+  0%, 100% {
+    clip-path: polygon(
+      0% 0%, 100% 0%, 100% 50%,
+      95% 55%, 90% 65%, 85% 70%, 80% 72%,
+      70% 75%, 60% 78%, 50% 80%, 40% 78%,
+      30% 75%, 20% 72%, 15% 70%, 10% 65%,
+      5% 55%, 0% 50%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      0% 0%, 100% 0%, 100% 45%,
+      90% 50%, 85% 60%, 80% 68%, 75% 72%,
+      65% 78%, 55% 82%, 45% 85%, 35% 82%,
+      25% 78%, 15% 72%, 10% 68%, 5% 60%,
+      0% 50%, 0% 45%
+    );
+  }
+}
+
+/* =============================================================================
+   BOTANICAL VINE DIVIDER - Natural Garden Growth
+   ============================================================================= */
+
+.divider-botanical {
+  height: var(--divider-height-standard);
+  position: relative;
+  z-index: 1;
+}
+
+.divider-botanical::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 30%,
+    95% 35%, 90% 45%, 85% 50%, 80% 45%,
+    75% 55%, 70% 60%, 65% 55%, 60% 65%,
+    55% 70%, 50% 65%, 45% 70%, 40% 65%,
+    35% 55%, 30% 60%, 25% 55%, 20% 45%,
+    15% 50%, 10% 45%, 5% 35%, 0% 30%
+  );
+}
+
+.divider-botanical::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  opacity: 0.4;
+  clip-path: polygon(
+    0% 0%, 15% 10%, 25% 5%, 35% 15%,
+    45% 10%, 50% 20%, 55% 10%, 65% 15%,
+    75% 5%, 85% 10%, 100% 0%, 100% 100%,
+    0% 100%
+  );
+}
+
+/* Decorative botanical elements */
+.divider-botanical-accents::before {
+  content: '🌿';
+  position: absolute;
+  top: 60%;
+  left: 20%;
+  font-size: 1.5rem;
+  opacity: 0.6;
+  animation: botanicalFloat 8s ease-in-out infinite;
+}
+
+.divider-botanical-accents::after {
+  content: '🌿';
+  position: absolute;
+  top: 40%;
+  right: 25%;
+  font-size: 1.2rem;
+  opacity: 0.4;
+  animation: botanicalFloat 10s ease-in-out infinite reverse;
+}
+
+@keyframes botanicalFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* =============================================================================
+   ROMANTIC ARCH DIVIDER - Wedding Ceremony Arch
+   ============================================================================= */
+
+.divider-romantic-arch {
+  height: var(--divider-height-prominent);
+  position: relative;
+  z-index: 1;
+}
+
+.divider-romantic-arch::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  clip-path: ellipse(70% 80% at 50% 0%);
+}
+
+.divider-romantic-arch::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  opacity: 0.2;
+  clip-path: ellipse(60% 70% at 50% 0%);
+  animation: archGlow 6s ease-in-out infinite alternate;
+}
+
+/* Heart accent for romantic touch */
+.divider-accent-hearts::before {
+  content: '♥';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent-gold);
+  font-size: 2rem;
+  opacity: 0.8;
+  animation: heartbeat 3s ease-in-out infinite;
+}
+
+@keyframes archGlow {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.4; }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
+}
+
+/* =============================================================================
+   RUSTIC WOOD GRAIN DIVIDER - Barn Wood Texture
+   ============================================================================= */
+
+.divider-wood-grain {
+  height: var(--divider-height-subtle);
+  position: relative;
+  z-index: 1;
+}
+
+.divider-wood-grain::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 70%,
+    98% 72%, 95% 75%, 92% 73%, 88% 76%,
+    85% 74%, 80% 78%, 75% 76%, 70% 80%,
+    65% 78%, 60% 82%, 55% 80%, 50% 84%,
+    45% 82%, 40% 86%, 35% 84%, 30% 80%,
+    25% 82%, 20% 78%, 15% 80%, 10% 76%,
+    5% 78%, 2% 75%, 0% 73%
+  );
+}
+
+.divider-wood-grain::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255,255,255,0.1) 25%, 
+    transparent 50%, 
+    rgba(255,255,255,0.05) 75%, 
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+/* =============================================================================
+   COLOR VARIANTS - Pre-configured Background Transitions
+   ============================================================================= */
+
+/* Dark to Light Transitions */
+.divider-dark-to-light { color: var(--warm-cream); }
+.divider-cream-to-white { color: var(--soft-white); }
+.divider-brown-to-cream { color: var(--warm-cream); }
+
+/* Light to Dark Transitions */
+.divider-light-to-dark { color: var(--dark-bg); }
+.divider-cream-to-brown { color: var(--primary-brown); }
+
+/* Special Accent Colors */
+.divider-accent-gold { color: var(--accent-gold); }
+.divider-accent-sage { color: var(--sage-green); }
+
+/* =============================================================================
+   SIZE VARIANTS
+   ============================================================================= */
+
+.divider-subtle { height: var(--divider-height-subtle); }
+.divider-standard { height: var(--divider-height-standard); }
+.divider-prominent { height: var(--divider-height-prominent); }
+
+/* =============================================================================
+   HOVER EFFECTS & INTERACTIVITY
+   ============================================================================= */
+
+.divider-interactive {
+  transition: var(--divider-transition);
+  cursor: pointer;
+}
+
+.divider-interactive:hover {
+  transform: scale(var(--divider-hover-scale));
+}
+
+.divider-interactive:hover::before,
+.divider-interactive:hover::after {
+  animation-play-state: paused;
+}
+
+/* =============================================================================
+   PARALLAX EFFECTS (Optional Enhancement)
+   ============================================================================= */
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .divider-parallax {
+    transform-style: preserve-3d;
+  }
+  
+  .divider-parallax::before {
+    transform: translateZ(-1px) scale(1.1);
+  }
+  
+  .divider-parallax::after {
+    transform: translateZ(-0.5px) scale(1.05);
+  }
+}
+
+/* =============================================================================
+   UTILITY CLASSES
+   ============================================================================= */
+
+.divider-flip {
+  transform: scaleY(-1);
+}
+
+.divider-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.divider-no-animation * {
+  animation: none !important;
+}
+
+.divider-fast-animation * {
+  animation-duration: 6s !important;
+}
+
+.divider-slow-animation * {
+  animation-duration: 20s !important;
+}
