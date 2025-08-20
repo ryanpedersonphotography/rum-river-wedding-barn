@@ -1,26 +1,353 @@
 @import "tailwindcss";
 
+/* CSS Reset and Variables - Rum River Color Palette */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    /* Rum River Color Palette */
+    --primary-brown: #8B6337;
+    --accent-gold: #D4A574;
+    --warm-cream: #FAF6F2;
+    --deep-brown: #4A3426;
+    --sage-green: #7A8B7F;
+    --text-dark: #2C2416;
+    --text-light: #6B5D54;
+    --blush: #E8D5D0;
+    --wine: #722F37;
+    --soft-white: #FEFDFB;
+    --dark-bg: #2C2416;
+    --medium-bg: #3D3328;
+    
+    /* Layout */
+    --max-width: 1400px;
+    
+    /* Shape Divider Variables */
+    --divider-size: 100px;
+    --divider-gap: 0px;
+    
+    /* Transitions */
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@media (max-width: 768px) {
+    :root {
+        --divider-size: 60px;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@media (max-width: 480px) {
+    :root {
+        --divider-size: 40px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Georgia', serif;
+    color: var(--text-dark);
+    background: var(--warm-cream);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-playfair), 'Georgia', serif;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.script-font {
+    font-family: 'Brush Script MT', cursive;
+    font-weight: 300;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Shape Dividers - Using barn-wedding-venue33333 coding style */
+[class*="divider-"] {
+    position: relative;
+    z-index: 1;
+}
+
+/* Subtle Wave Divider */
+.divider-wave-down {
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - var(--divider-size)),
+        75% 100%,
+        50% calc(100% - var(--divider-size)),
+        25% 100%,
+        0 calc(100% - var(--divider-size))
+    );
+}
+
+.divider-wave-up {
+    clip-path: polygon(
+        0 0,
+        25% var(--divider-size),
+        50% 0,
+        75% var(--divider-size),
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+    margin-top: calc(var(--divider-gap) - var(--divider-size));
+    z-index: 2;
+}
+
+/* Angle Divider */
+.divider-angle-down {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--divider-size)), 0 100%);
+}
+
+.divider-angle-up {
+    clip-path: polygon(0 var(--divider-size), 100% 0, 100% 100%, 0 100%);
+    margin-top: calc(var(--divider-gap) - var(--divider-size));
+    z-index: 2;
+}
+
+/* Soft Curve Divider */
+.divider-curve-down {
+    clip-path: ellipse(150% 100% at 50% 0%);
+    padding-bottom: var(--divider-size);
+}
+
+.divider-curve-up {
+    clip-path: ellipse(150% 100% at 50% 100%);
+    margin-top: calc(var(--divider-gap) - var(--divider-size));
+    padding-top: var(--divider-size);
+    z-index: 2;
+}
+
+/* Split/Arrow Divider */
+.divider-split-down {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--divider-size)), 50% 100%, 0 calc(100% - var(--divider-size)));
+}
+
+.divider-split-up {
+    clip-path: polygon(0 0, 50% var(--divider-size), 100% 0, 100% 100%, 0 100%);
+    margin-top: calc(var(--divider-gap) - var(--divider-size));
+    z-index: 2;
+}
+
+/* Modern Elegant Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    z-index: 1000;
+    transition: var(--transition);
+    padding: 2rem 0;
+}
+
+header.scrolled {
+    background: rgba(251, 247, 244, 0.98);
+    backdrop-filter: blur(20px);
+    padding: 1.25rem 0;
+    box-shadow: 0 4px 20px rgba(31, 29, 26, 0.12);
+}
+
+header.scrolled .logo-circle {
+    border-color: var(--primary-brown);
+    color: var(--primary-brown);
+}
+
+header.scrolled .nav-menu a {
+    color: var(--deep-brown);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.logo-circle {
+    width: 55px;
+    height: 55px;
+    border: 2px solid var(--warm-cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: var(--warm-cream);
+    font-weight: 300;
+    font-family: var(--font-playfair), serif;
+    transition: var(--transition);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-menu a {
+    color: var(--warm-cream);
+    font-family: 'Georgia', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 1.125rem 3rem;
+    font-family: 'Georgia', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    margin: 0.75rem 0;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-light {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--deep-brown);
+    backdrop-filter: blur(10px);
+}
+
+.btn-light:hover {
+    background: var(--soft-white);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--warm-cream);
+    border: 2px solid var(--warm-cream);
+    padding: 1rem 2.75rem;
+}
+
+.btn-outline:hover {
+    background: var(--warm-cream);
+    color: var(--deep-brown);
+    border-color: var(--warm-cream);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--warm-cream);
+    transition: var(--transition);
+}
+
+header.scrolled .menu-toggle span {
+    background: var(--deep-brown);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .social-sidebar,
+    .nav-dots {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    h2 {
+        font-size: 36px !important;
+    }
+
+    h3 {
+        font-size: 28px !important;
+    }
 }
